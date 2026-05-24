@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: address-book-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - PROJECT_NAME=Address Book API
+      - API_V1_STR=/api/v1
+      - DATABASE_URL=sqlite:///./address_book.db
+      - LOG_LEVEL=INFO
+    restart: always
